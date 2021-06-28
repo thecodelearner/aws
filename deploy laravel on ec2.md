@@ -28,6 +28,16 @@ $ composer install
 
 
 $ cp .env.example .env
+```
+
+*Setup RDS Hosts in Laravel .env file*
+
+```sh
+$ sudo nano .env
+```
+
+```sh
+
 $ php artisan key:generate
 $ chmod -R 777 storage/
 ```
