@@ -15,20 +15,21 @@ $ chmod +x /usr/bin/composer
 
 $ php --version  
 ```
-**Dependencies installation will take some time. After than set proper permissions on files.**  
+**Dependencies installation will take some time. Then set proper permissions on files.**  
 ```sh
 $ sudo chown -R ec2-user:apache /var/www  
 $ sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;  
 $ find /var/www -type f -exec sudo chmod 0664 {} \;  
 
 $ cd /var/www/html  
-$ composer create-project --prefer-dist laravel/laravel speedrun "8.*"  
-$ cd /var/www/html/speedrun  
+$ composer create-project --prefer-dist laravel/laravel my-laravel-app "8.*"  
+$ cd /var/www/html/my-laravel-app  
 $ composer install  
 
 
 $ cp .env.example .env  
 $ php artisan key:generate  
+$ chmod -R 777 storage/
 ```
 
 **Set the host:**  
@@ -37,16 +38,20 @@ $ sudo vim /etc/httpd/conf/httpd.conf
 ```
 
 **Add code at the bottom of the file**  
+*Apache2 server configs*
 
 ```blade
 <VirtualHost *:80>  
 	ServerName laravel.example.com  
-	DocumentRoot /var/www/html/speedrun/public  
-	<Directory /var/www/html/speedrun>  
+	DocumentRoot /var/www/html/my-laravel-app/public  
+	<Directory /var/www/html/my-laravel-app>  
 		AllowOverride All  
 	</Directory>  
 </VirtualHost>  
 ```  
+
+
+**Enabling PHP-FPM:**
 
 ```sh
 $ sudo systemctl start httpd  
