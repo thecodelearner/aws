@@ -44,7 +44,7 @@ $ chmod -R 777 storage/
 
 **Set the host:**  
 ```sh
-$ sudo vim /etc/httpd/conf/httpd.conf
+$ sudo nano /etc/httpd/conf/httpd.conf
 ```
 
 **Add code at the bottom of the file**
