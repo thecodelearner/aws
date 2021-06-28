@@ -1,6 +1,6 @@
 
 # Deploy a Laravel App to EC2 (Amazon Linux 2 - RHEL)
-Laravel v8.12.3 (PHP v7.4.11) Mysql 8.0  
+Laravel v8.12.3 (PHP v7.4.19) Mysql 8.0  
 
 ---  
 ```sh
