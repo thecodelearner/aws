@@ -15,6 +15,15 @@ $ chmod +x /usr/bin/composer
 
 $ php --version
 ```
+
+
+**Set up Git:**
+```sh
+TODO:
+```
+
+
+
 **Dependencies installation will take some time. Then set proper permissions on files.**  
 ```sh
 $ sudo chown -R ec2-user:apache /var/www
@@ -22,7 +31,10 @@ $ sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
 $ find /var/www -type f -exec sudo chmod 0664 {} \;
 
 $ cd /var/www/html
-$ composer create-project --prefer-dist laravel/laravel my-laravel-app "8.*"
+### To create a fresh laravel 8.x project:
+# $ composer create-project --prefer-dist laravel/laravel my-laravel-app "8.*"
+### To clone your own project:
+$ git clone <git repo url>
 $ cd /var/www/html/my-laravel-app
 $ composer install
 
@@ -39,7 +51,8 @@ $ sudo nano .env
 ```sh
 
 $ php artisan key:generate
-$ chmod -R 777 storage/
+$ chmod -R 775 storage/
+$ ln -s /var/www/html/backend/storage /var/www/html/backend/public/storage
 ```
 
 **Set the host:**  
