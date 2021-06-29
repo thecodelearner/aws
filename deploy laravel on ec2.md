@@ -23,21 +23,27 @@ $ php --version
 
 		
 
-**Dependencies installation will take some time.**
-**Then set proper permissions on files.**  
+**Setting file permissions and owning server root dirs**
 ```sh
 $ sudo chown -R ec2-user:apache /var/www
 $ sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
 $ find /var/www -type f -exec sudo chmod 0664 {} \;
+```
 
+**Creating/Cloning Laravel Project**
+
+```sh
 $ cd /var/www/html
+
 ### To create a fresh laravel 8.x project:
 # $ composer create-project --prefer-dist laravel/laravel backend "8.*"
+
 ### To clone your own project:
 $ git clone <git repo url>
-$ cd /var/www/html/backend
-$ composer install
 
+$ cd /var/www/html/backend
+
+$ composer install
 
 $ cp .env.example .env
 ```
