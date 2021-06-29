@@ -17,14 +17,14 @@ $ php --version
 ```
 
 
-**Set up Git:**
-```sh
-TODO:
-```
+**Set up Git:** 
+[Git SSH Setup Linux](https://github.com/thecodelearner/aws/blob/main/ssh_setup.md)
 
 
+		
 
-**Dependencies installation will take some time. Then set proper permissions on files.**  
+**Dependencies installation will take some time.**
+**Then set proper permissions on files.**  
 ```sh
 $ sudo chown -R ec2-user:apache /var/www
 $ sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
@@ -32,10 +32,10 @@ $ find /var/www -type f -exec sudo chmod 0664 {} \;
 
 $ cd /var/www/html
 ### To create a fresh laravel 8.x project:
-# $ composer create-project --prefer-dist laravel/laravel my-laravel-app "8.*"
+# $ composer create-project --prefer-dist laravel/laravel backend "8.*"
 ### To clone your own project:
 $ git clone <git repo url>
-$ cd /var/www/html/my-laravel-app
+$ cd /var/www/html/backend
 $ composer install
 
 
@@ -51,7 +51,11 @@ $ sudo nano .env
 ```sh
 
 $ php artisan key:generate
+
+# storage folder permissions
 $ chmod -R 775 storage/
+
+# Create symlink for storage dirs
 $ ln -s /var/www/html/backend/storage /var/www/html/backend/public/storage
 ```
 
@@ -66,8 +70,8 @@ $ sudo nano /etc/httpd/conf/httpd.conf
 ```blade
 <VirtualHost *:80>
 	ServerName laravel.example.com
-	DocumentRoot /var/www/html/my-laravel-app/public
-	<Directory /var/www/html/my-laravel-app>
+	DocumentRoot /var/www/html/backend/public
+	<Directory /var/www/html/backend>
 		AllowOverride All
 	</Directory>
 </VirtualHost>
