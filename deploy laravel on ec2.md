@@ -4,15 +4,27 @@ Laravel v8.12.3 (PHP v7.4.19) Mysql 8.0
 
 ---  
 ```sh
+
+# Update Linux
 $ sudo yum update -y
+
+# PHP7.4 is pre installed on Amazon Linux 2, we'll just enable it by running:
 $ sudo amazon-linux-extras enable php7.4 -y
 $ sudo yum clean metadata
+
+# Install php extensions required for the project
 $ sudo yum install -y php php-{pear,cgi,common,curl,mbstring,gd,mysqlnd,gettext,bcmath,json,xml,fpm,intl,zip,imap}
+
+# Install git (optional)
 $ sudo yum install -y git
+
+# Install composer
 $ curl -sS https://getcomposer.org/installer | php
 $ sudo  mv composer.phar /usr/bin/composer
 $ chmod +x /usr/bin/composer
 
+
+# Check if PHP is installed successfully
 $ php --version
 ```
 
